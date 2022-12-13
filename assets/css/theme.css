@@ -1,0 +1,38 @@
+.hero {
+  background: #16bebd !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  html {
+    background: #1f1f1f;
+  }
+
+  .box {
+    background: #2f2f2f;
+    color: #fff;
+  }
+
+  .title {
+    color: #fff !important;
+  }
+
+  a {
+    color: #16bebd;
+  }
+
+  a:hover {
+    color: #16a7a7;
+  }
+
+  footer {
+    background: #1f1f1f !important;
+    color: #fff;
+  }
+
+  footer strong,
+  p {
+    color: #fff;
+  }
+
+}
