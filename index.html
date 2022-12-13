@@ -31,9 +31,9 @@
               <div class="content">
                 <h3 class="title is-3">Welcome to MikuMikuInstall!</h3>
                 <p>
-                  MikuMikuInstall is a simple installer for MikuMikuDance. It
-                  will install the latest version of MikuMikuDance and all of
-                  its dependencies.
+                  MikuMikuInstall is a simple installer for MikuMikuDance (MMD). It
+                  will install the latest version and all of
+                  its dependencies. It also includes the latest version of MikuMikuEffect.
                 </p>
                 <p>Click the button below to download for your device.</p>
                 <a id="install" class="button is-primary is-fullwidth"
@@ -75,14 +75,37 @@
     <section class="section">
       <div class="container">
         <div class="columns">
+          <div class="column is-6 is-offset-3">
+            <div class="box">
+              <div class="content">
+                <h3 class="title is-3">What is MikuMikuEffect?</h3>
+                <p>
+                  MikuMikuEffect (MME) is a free plugin for MikuMikuDance (MMD)
+                  that lets you add advanced visual effects to your renders. It is
+                  commonly used to add specialised shaders to MMD videos.
+                <p>
+                  For more information, visit the
+                  <a
+                    href="https://mikumikudance.fandom.com/wiki/MMD:MikuMikuEffect"
+                    >MikuMikuDance Wiki</a
+                  >.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
           <div class="column is-6 is-offset-3 has-text-centered">
             <h3 class="title is-3">Need help?</h3>
             <p>
               Visit the
-              <a href="https://mikumikudance.fandom.com/wiki/MikuMikuDance_Wiki"
-                >MikuMikuDance Wiki</a
+              <a href="https://github.com/mikumikuinstall/mikumikuinstall/discussions"
+                >GitHub Discussions</a
               >
-              for help with MikuMikuDance.
+              for help with MikuMikuInstall.
             </p>
           </div>
         </div>
@@ -124,7 +147,7 @@
 
       install.addEventListener("click", () => {
         if (device === "win64" || device === "win32" || device === "winxp") {
-          window.location.href = `https://mikumikudance.github.io/download.html?device=${device}&version=latest`;
+          window.location.href = `https://mikumikuinstall.github.io/download.html?device=${device}&version=latest`;
         } else {
           alert(
             "Sorry, MikuMikuInstall is not yet available for your device. Please check back later."
