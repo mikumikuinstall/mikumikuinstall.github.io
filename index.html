@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MikuMikuInstall | Installer for MikuMikuDance</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <style>
+      .hero {
+        background: #16bebd !important;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">MikuMikuInstall</h1>
+          <h2 class="subtitle">Installer for MikuMikuDance</h2>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6 is-offset-3">
+            <div class="box">
+              <div class="content">
+                <h3 class="title is-3">Welcome to MikuMikuInstall!</h3>
+                <p>
+                  MikuMikuInstall is a simple installer for MikuMikuDance. It
+                  will install the latest version of MikuMikuDance and all of
+                  its dependencies.
+                </p>
+                <p>Click the button below to download for your device.</p>
+                <a id="install" class="button is-primary is-fullwidth"
+                  >Install for
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6 is-offset-3">
+            <div class="box">
+              <div class="content">
+                <h3 class="title is-3">What is MikuMikuDance?</h3>
+                <p>
+                  MikuMikuDance (MMD) is a free 3D animation software developed
+                  by Yu Higuchi, that lets you import and animate 3D models,
+                  even if you have no prior 3D animation experience. MMD is used
+                  by many people to create animations of the Vocaloid character
+                  Hatsune Miku, but it can be used to animate any 3D model.
+                </p>
+                <p>
+                  For more information, visit the
+                  <a
+                    href="https://mikumikudance.fandom.com/wiki/MikuMikuDance_Wiki"
+                    >MikuMikuDance Wiki</a
+                  >.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6 is-offset-3 has-text-centered">
+            <h3 class="title is-3">Need help?</h3>
+            <p>
+              Visit the
+              <a href="https://mikumikudance.fandom.com/wiki/MikuMikuDance_Wiki"
+                >MikuMikuDance Wiki</a
+              >
+              for help with MikuMikuDance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p><strong>MikuMikuInstall</strong> by <a href="https://davidcralph.co.uk">David Ralph</a></p>
+      </div>
+    </footer>
+    <script>
+      const install = document.getElementById("install");
+      let device;
+
+      if (navigator.platform !== "Win32" && navigator.platform !== "Win64") {
+        install.textContent = "Learn about running on other platforms";
+        device = "other";
+      }
+
+      if (
+        navigator.userAgent.indexOf("WOW64") != -1 ||
+        navigator.userAgent.indexOf("Win64") != -1
+      ) {
+        install.textContent = "Install for Windows (64-bit)";
+        device = "win64";
+      } else {
+        install.textContent = "Install for Windows (32-bit)";
+        device = "win32";
+      }
+
+      const version = window.navigator.appVersion
+        .split("NT")[1]
+        .split(";")[0]
+        .trim();
+      if (version === "XP") {
+        install.textContent = "Install for Windows XP";
+        device = "winxp";
+      }
+
+      install.addEventListener("click", () => {
+        if (device === "win64" || device === "win32" || device === "winxp") {
+          window.location.href = `https://mikumikudance.github.io/download.html?device=${device}&version=latest`;
+        } else {
+          alert(
+            "Sorry, MikuMikuInstall is not yet available for your device. Please check back later."
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

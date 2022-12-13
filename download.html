@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Download | MikuMikuInstall</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <style>
+      .hero {
+        background: #16bebd !important;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">MikuMikuInstall</h1>
+          <h2 class="subtitle">Installer for MikuMikuDance</h2>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6 is-offset-3">
+            <div class="box has-text-centered">
+              <div class="content">
+                <h3 class="title is-3">Downloading MikuMikuInstall</h3>
+                <p>Follow the steps below to complete your installation</p>
+              </div>
+              <div class="content">
+                <p>Your download should start automatically.</p>
+                <p>
+                  If it doesn't after a few seconds, please click here to start
+                  downloading.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p><strong>MikuMikuInstall</strong> by <a href="https://davidcralph.co.uk">David Ralph</a></p>
+      </div>
+    </footer>
+    <script>
+      function downloadURI(uri) {
+        var link = document.createElement("a");
+        link.setAttribute("download", "");
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const device = urlParams.get("device");
+      let version = urlParams.get("version");
+      if (version === "latest") {
+        version = "v0.0.1";
+      }
+
+      setTimeout(() => {
+        switch (device) {
+          case "win64":
+            downloadURI(
+              `https://github.com/mikumikuinstall/installer-win/releases/download/${version}/MikuMikuDance64-9.32.exe`
+            );
+            break;
+          case "win32":
+            downloadURI(
+              `https://github.com/mikumikuinstall/installer-win/releases/download/${version}/MikuMikuDance32-9.32.exe`
+            );
+            break;
+          case "winxp":
+            downloadURI(
+              `https://github.com/mikumikuinstall/installer-win/releases/download/${version}/MikuMikuDance-7.29.exe`
+            );
+            break;
+          default:
+            break;
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
