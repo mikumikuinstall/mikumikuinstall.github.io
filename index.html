@@ -145,15 +145,7 @@
         device = "winxp";
       }
 
-      install.addEventListener("click", () => {
-        if (device === "win64" || device === "win32" || device === "winxp") {
-          window.location.href = `https://mikumikuinstall.github.io/download.html?device=${device}&version=latest`;
-        } else {
-          alert(
-            "Sorry, MikuMikuInstall is not yet available for your device. Please check back later."
-          );
-        }
-      });
+      install.href = `https://mikumikuinstall.github.io/download.html?device=${device}&version=latest`;
     </script>
   </body>
 </html>
